@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Voucher Application</title>
+
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="http://www.parsecdn.com/js/parse-1.2.13.min.js"></script>
+	
+	<script type="text/javascript" src="generateData.js"></script>
+	
+	<script src="../bower_components/raphael/raphael-min.js"></script>
+    <script src="../bower_components/morrisjs/morris.min.js"></script>
+	<!-- <link rel="stylesheet" href="../morris.css"> -->
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	
+	
+
+
+</head>
+<style>
+.form-group1 {
+    position: absolute;
+    right: 0px;
+    width: 300px;
+	left: 300px;
+}
+</style>
+<script>
+  $(function() {
+		$("#chart_section").hide();
+		//$("#donut_charts").hide();
+    });
+</script>
+
+
+<body>
+
+    <div id="wrapper" >
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Voucher Application</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>Read All Messages</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-messages -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-tasks">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 1</strong>
+                                        <span class="pull-right text-muted">40% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                            <span class="sr-only">40% Complete (success)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 2</strong>
+                                        <span class="pull-right text-muted">20% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                            <span class="sr-only">20% Complete</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 3</strong>
+                                        <span class="pull-right text-muted">60% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                            <span class="sr-only">60% Complete (warning)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 4</strong>
+                                        <span class="pull-right text-muted">80% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                            <span class="sr-only">80% Complete (danger)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Tasks</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-tasks -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-tasks fa-fw"></i> New Task
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Alerts</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-alerts -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <!--
+                        <li class="sidebar-search">
+						
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+						
+                        </li>
+					-->
+                        <li>
+                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a class="active" href="charts.html">Campaign Reports</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <!--
+                        <li>
+                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                        </li>
+						-->
+                        <!--
+                        <li>
+                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                        </li>
+						-->
+                        <li>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Location Management<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="add_location.html">Add Location</a>
+                                </li>
+                                <li>
+                                    <a href="edit_location.html">Update Location</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Merchant Management<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="add_merchant.html">Add Merchant</a>
+                                </li>
+                                <li>
+                                    <a href="edit_merchant.html">Update Merchant</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Campaign Management<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="add_voucher.html">Add Voucher</a>
+                                </li>
+                                <li>
+                                    <a href="existing_voucher.html">Update Voucher</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <!--
+                        <li>
+                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="blank.html">Blank Page</a>
+                                </li>
+                                <li>
+                                    <a href="login.html">Login Page</a>
+                                </li>
+                            </ul>
+                        </li>
+						-->
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <!-- Page Content -->
+        <div id="page-wrapper" style="height:1000px !important">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Campaign Reports</h1>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+               <!--  <div class="row"> -->
+                    <!-- <div class="col-lg-6" style="width:30% !important"> -->
+                        <form class="form-inline" role="form">
+                            <div class="col-md-4" >
+                                <label>Merchant</label>
+                                <select id="merchantList" class="form-control" onchange="dropdownTrigger(this,document.getElementById('voucherList'))">
+                                <option value="" disabled>Select Merchant</option>
+								</select>
+                            </div>
+							<div class="col-md-4">
+                                <label>Voucher</label>
+								<select id="voucherList" class="form-control">
+                                <option value="" disabled>Select Voucher</option>
+								</select>
+                           </div>
+							<div class="col-md-4">
+                                <label>Date Format</label>
+                                <select id="dateFormat" class="form-control">
+                                <option value="today">Today</option>
+								<option value="last seven">Last 7 Days</option>
+								<option value="month">Month</option>
+								<option value="month-jan">&nbsp;&nbsp;&nbsp;&nbsp; January</option>
+								<option value="month-feb">&nbsp;&nbsp;&nbsp;&nbsp; February</option>
+								<option value="month-mar">&nbsp;&nbsp;&nbsp;&nbsp; March</option>
+								<option value="month-apr">&nbsp;&nbsp;&nbsp;&nbsp; April</option>
+								<option value="month-may">&nbsp;&nbsp;&nbsp;&nbsp; May</option>
+								<option value="month-jun">&nbsp;&nbsp;&nbsp;&nbsp; June</option>
+								<option value="month-jul">&nbsp;&nbsp;&nbsp;&nbsp; July</option>
+								<option value="month-aug">&nbsp;&nbsp;&nbsp;&nbsp; August</option>
+								<option value="month-sep">&nbsp;&nbsp;&nbsp;&nbsp; September</option>
+								<option value="month-oct">&nbsp;&nbsp;&nbsp;&nbsp; October</option>
+								<option value="month-nov">&nbsp;&nbsp;&nbsp;&nbsp; November</option>
+								<option value="month-dec">&nbsp;&nbsp;&nbsp;&nbsp; December</option>
+								<option value="year">Year</option>
+								<option value="year-2015">&nbsp;&nbsp;&nbsp;&nbsp; 2015</option>
+								</select>
+                            </div>
+							<br>
+							<br>
+							<center>
+                                <button type="button" class="btn btn-default" onclick="QueryFunction();">Filter Chart</button>
+                                <button type="reset" class="btn btn-default">Clear</button>
+                            </center>
+							<br>
+							<!-- <center> -->
+							<div id="chart_section" class="row">
+								<div class="col-lg-8">
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<i class="fa fa-bar-chart-o fa-fw"></i>Total Voucher Claimed/Redeemed Chart
+										</div>
+										<!-- /.panel-heading -->
+										<div class="panel-body">
+											<div class="row">
+												<!-- /.col-lg-4 (nested) -->
+												<div class="col-lg-12">
+													<div id="claim_vs_redeem"></div>
+												</div>
+												<!-- /.col-lg-8 (nested) -->
+											</div>
+											<!-- /.row -->
+										</div>
+										<!-- /.panel-body -->
+									</div>
+									<!-- /.panel -->
+								</div>
+								<!-- /.col-lg-8 -->
+								<div class="col-lg-4">
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<i class="fa fa-bar-chart-o fa-fw"></i> Age Report for Claimed Vouchers
+											<div id="total_age"></div>
+										</div>
+										<div class="panel-body">
+											<div id="ageChart"></div>
+										</div>
+										<!-- /.panel-body -->
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<i class="fa fa-bar-chart-o fa-fw"></i> Gender Report for Claimed Vouchers
+											<div id="total_gender"></div>
+										</div>
+										<div class="panel-body">
+											<div id="genderChart"></div>
+										</div>
+										<!-- /.panel-body -->
+									</div>
+								</div>
+								<!-- /.col-lg-4 -->
+							</div>
+							<!-- </center> -->
+                            <br/>
+                        </form>
+                    <!-- </div> -->
+                <!-- </div> -->
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+	
+	<!-- NOTE: Use page content in above -->
+	<!-- Pwede mo dito ilagay yung function and script mo -->
+	
+	<script>
+		Parse.initialize("iWMqfQel5vXscdc1VBq959xT7fpEQMJAnvRf55SX", "l5DRfH99ricIQQfuN2M62U5Xg0VtRKpvQPtYd2Pt");
+		var Merchant = Parse.Object.extend("Merchant");
+		var query = new Parse.Query("Merchant");
+		query.ascending("name");
+		query.find({
+			success: function(results) {
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					objectId = object.id;
+					var parseObject = Parse.Object.extend("Merchant");
+					var query = new Parse.Query(Merchant);
+					var select = document.getElementById("merchantList");
+					var opt = object.get('name');
+					var el = document.createElement("option");
+					el.textContent = opt;
+					el.value = objectId;
+					select.appendChild(el);
+				}
+			},
+			error: function(error) {
+				alert("Error: " + error.code + " " + error.message);
+			}
+		});
+		
+		//var vouchers = [];
+		//var locations = [];
+		var voucherStore = [];
+		
+		var VoucherRedeem = Parse.Object.extend("Voucher");
+		var query = new Parse.Query("Voucher");
+		query.ascending("name");
+		query.find({
+			success: function(results) {
+				for (var i = 0; i < results.length; i++) {
+					
+					var merchantVoucher = [];
+					
+					var object = results[i];
+					objectId = object.id;
+					objectVoucherName = object.get("name");
+					var merchant = object.get("merchant");
+					var merchantId = merchant.id;
+					
+					merchantVoucher['merchant_id'] = merchantId;
+					merchantVoucher['voucher_id'] = objectId;
+					merchantVoucher['voucher_name'] = objectVoucherName;
+					
+					voucherStore.push(merchantVoucher);
+				}
+			},
+			error: function(error) {
+				alert("Error: " + error.code + " " + error.message);
+			}
+		});
+		
+		function dropdownTrigger(merchantList, voucherList){
+			
+			var merchant = merchantList.value;
+			var vouchers = [];
+			
+			for (j=0;j < voucherStore.length; j++){
+				
+				var voucher = [];
+				
+				var merchantVoucherStore = voucherStore[j];
+				var merchantTemp = merchantVoucherStore["merchant_id"];
+				
+				console.log(merchantTemp);
+				
+				if (merchantTemp == merchant){
+				
+					voucher['id'] = merchantVoucherStore["voucher_id"];
+					voucher['name'] = merchantVoucherStore["voucher_name"];
+					
+					console.log(voucher);
+					
+					vouchers.push(voucher);
+				}
+			}
+			
+			console.log(vouchers);
+			
+			clearOptions(document.getElementById("voucherList"));
+			
+			for (i = 0;i < vouchers.length; i++){
+				
+				var voucherTemp = vouchers[i];
+				
+				var opt = document.createElement('option');
+				opt.value = voucherTemp['id'];
+				opt.text = voucherTemp['name'];
+				voucherList.options.add(opt);
+			}
+			
+		}
+		
+		function clearOptions(selectbox)
+		{
+			var i;
+			for(i = selectbox.options.length-1;i >= 0;i--)
+			{
+				selectbox.remove(i);
+			}
+		}
+		
+		
+	</script>
+	
+	<script>
+		function QueryFunction(){
+		
+			var merchantArgs = merchantList.value;
+			var voucherArgs = voucherList.value;
+			var dateArgs = dateFormat.value;
+			
+			$("#claim_vs_redeem").html("");
+			$("#ageChart").html("");
+			$("#genderChart").html("");
+			
+			if (merchantArgs != ""){
+				
+				if (voucherArgs != ""){
+				
+					$("#chart_section").show();
+					getChartData(dateArgs, voucherArgs);
+					//generateChart();
+				}
+			}
+		}
+		
+		function parseToday(today){
+			//var today = new Date();
+			var dd = today.getDate();
+			var mm = today.getMonth()+1; //January is 0!
+			var yyyy = today.getFullYear();
+
+			if(dd<10) {
+				dd='0'+dd;
+			} 
+
+			if(mm<10) {
+				mm='0'+mm;
+			} 
+
+			today = mm+'-'+dd+'-'+yyyy;
+			return today;
+		}
+		
+		function getNextDay(today){
+			
+			var date_now = parseToday(today);
+			var date = date_now.split('-');
+			var day = parseInt(date[1]);
+			date[1] = day + 1;
+			
+			if(date[1]<10) {
+				date[1]='0'+date[1];
+			} 
+			
+			var nextDay = date.join('-');
+			return nextDay;
+			
+		}
+		
+		function parseMonth(monthInt){
+		
+			var monthTemp = ""
+		
+			if (monthInt == 1){
+				monthTemp = "Jan";
+			}
+			else if (monthInt == 2){
+				monthTemp = "Feb";
+			}
+			else if (monthInt == 3){
+				monthTemp = "Mar";
+			}
+			else if (monthInt == 4){
+				monthTemp = "Apr";
+			}
+			else if (monthInt == 5){
+				monthTemp = "May";
+			}
+			else if (monthInt == 6){
+				monthTemp = "Jun";
+			}
+			else if (monthInt == 7){
+				monthTemp = "Jul";
+			}
+			else if (monthInt == 8){
+				monthTemp = "Aug";
+			}
+			else if (monthInt == 9){
+				monthTemp = "Sep";
+			}
+			else if (monthInt == 10){
+				monthTemp = "Oct";
+			}
+			else if (monthInt == 11){
+				monthTemp = "Nov";
+			}
+			else if (monthInt == 12){
+				monthTemp = "Dec";
+			}
+			
+			return monthTemp;
+			
+		}
+		
+	</script>
+	
+    <!-- jQuery -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
+
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
+    <script src="../morris.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.js"></script>
+    <script src="lib/example.js"></script>
+    <!-- <script src="datasource.js"></script> -->
+    <!-- <link rel="stylesheet" href="lib/example.css"> -->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.css">
+    <link rel="stylesheet" href="../morris.css">
+
+</body>
+
+</html>

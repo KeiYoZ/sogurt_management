@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Sogurt</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+    <script src="http://www.parsecdn.com/js/parse-1.2.13.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="pages/lib/js/parse_config.js"></script>
+
+		<link href="css/styles.css" rel="stylesheet">
+    <style>
+      body{
+        background-image: url("css/sogurt.jpg");
+        background-repeat: repeat;
+      }
+
+    </style>
+
+	</head>
+	<body>
+    <!--login modal-->
+    <div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>-->
+                <h1 class="text-center">Sogurt</h1>
+            </div>
+            <div class="modal-body">
+                <form class="form col-md-12 center-block" method="post" name="login" id="login">
+                  <div class="form-group">
+                    <input type="text" class="form-control input-lg" name="username" id="username" placeholder="Username">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control input-lg" name="password" id="password" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                    <select id="branches" class="form-control">
+                      <option disabled>Choose Branch</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <button type="button" class="btn btn-primary btn-lg btn-block" onClick="validate()">Log in</button>
+                    <!--<span class="pull-right"><a href="#">Register</a></span><span><a href="#">Need help?</a></span>-->
+                  </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-12">
+                <!--<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>-->
+      		  </div>	
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      //Parse.initialize("eBV99FYhAibA1DFF3sorCHFB4dPDMZLn7otZuvPN", "7ATGJqVjXiMYlpsKxElZT6VvroQqIv6TRVBabUzK");
+      //var Operator = Parse.Object.extend("Operator");
+      //var Branches = Parse.Object.extend("Branches");
+      //var operator = new Operator();
+      //var branches = new Branches();
+
+      var branch_query = new Parse.Query(Branches);
+      branch_query.ascending("branch_name");
+      branch_query.find({
+          success: function(branch_results) {
+            for (var i = 0; i < branch_results.length; i++) {
+              var branch_object = branch_results[i];
+              var select = document.getElementById("branches");
+              var opt = branch_object.get('branch_name');
+              var el = document.createElement("option");
+              objectId = branch_object.id;
+              el.textContent = opt;
+              el.value = objectId;
+              select.appendChild(el);
+            }
+          },
+          error: function(error) {
+            alert("Error: " + error.code + " " + error.message);
+          }
+      });
+
+      function validate(){
+        var username = $('#username').val();
+        var password = $('#password').val();
+        var branch_id = $('#branches').val();
+
+        if (username == ""){
+          alert("Username field is empty!");
+        }else if (password == ""){
+          alert("Password field is empty!");
+        }else{
+          var login_query = new Parse.Query(Operator);
+          login_query.equalTo("username", username);
+          login_query.first({
+            success:function(user_object){
+              debugger;
+              //var user_object_username = user_object.get("username");
+              var user_object_password = user_object.get("password");
+              var user_object_branch = user_object.get("branch");
+              var user_object_branch_id = user_object_branch.id;
+
+              /*if (user_object_username == username && user_object_password == password && user_object_branch_id == branch_id){
+                  saveCookies(username, branch_id);
+                  window.location.href = "pages/index.html";
+
+              }else{
+                alert("wrong input");
+              }*/
+
+              if (user_object_password != password && user_object_branch_id == branch_id){
+                alert("username and password does not match!");
+              }else if (user_object_password == password && user_object_branch_id != branch_id){
+                alert("this account does not belong under this branch!");
+              }else if (user_object_password != password && user_object_branch_id != branch_id){
+                alert("incorrect inputs!");
+              }else{
+                saveCookies(username, branch_id);
+                window.location.href = "pages/index.html";
+              }
+
+            }
+          });
+        }
+      }
+
+      function saveCookies(username, branch){
+        debugger;
+        var now = new Date();
+        var time = now.getTime();       
+        time += 36000 * 1000;
+        escaped_username= encodeURIComponent(username) + ";";  
+
+        document.cookie="username=" + escaped_username;
+        document.cookie="branch=" + branch + ";";
+        document.cookie="expires=" + now.toGMTString();
+      }
+    </script>
+    	<!-- script references -->
+		
+	</body>
+</html>

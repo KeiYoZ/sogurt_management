@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Parse library -->
+    <script src="http://www.parsecdn.com/js/parse-1.2.13.min.js"></script>
+    <!-- jQuery Library -->
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <!-- <script src="lib/js/bootstrap-datetimepicker.min.js"></script> -->
+    
+    <script src="lib/js/parse_config.js"></script>
+    <!--<script src="lib/jquery.js"></script>-->
+    <!--<script src="lib/jquery.datetimepicker.js"></script>-->
+    
+    <!-- datepicker -->
+    
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="lib/jquery.datetimepicker.css"/>
+
+
+    <title>SoGirls</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="lib/css/bootstrap-datetimepicker.min.css" rel="stylesheet"> -->
+
+    <!-- MetisMenu CSS -->
+    <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<!-- Hide and setup filelds -->
+<script>
+    $(function() {
+        var currentDate = new Date();
+        //currentDate.setHours(2);      
+        $("#sale_date").datepicker();
+        //$('#sale_date').datetimepicker({
+            //lang:'en'
+        //});
+        //$('#end_date').datetimepicker({
+            //lang:'en'
+        //});
+        //$("#end_date").datetimepicker("setDate", currentDate);
+        //$("#sale_date").datetimepicker("setDate", currentDate);
+        $("#sale_date").datepicker("setDate", currentDate);
+        $("#merchant_id").hide();
+        $("#cib_temp").hide();
+        $("#gross_temp").hide();
+    });
+</script>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Sogurt</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>Read All Messages</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-messages -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-tasks">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 1</strong>
+                                        <span class="pull-right text-muted">40% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                            <span class="sr-only">40% Complete (success)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 2</strong>
+                                        <span class="pull-right text-muted">20% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                            <span class="sr-only">20% Complete</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 3</strong>
+                                        <span class="pull-right text-muted">60% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                            <span class="sr-only">60% Complete (warning)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 4</strong>
+                                        <span class="pull-right text-muted">80% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                            <span class="sr-only">80% Complete (danger)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Tasks</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-tasks -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-tasks fa-fw"></i> New Task
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Alerts</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-alerts -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="charts.html">Sales Report</a>
+                                </li>
+                                <!-- <li>
+                                    <a href="flot.html">Flot Charts</a>
+                                </li>
+                                <li>
+                                    <a href="morris.html">Morris.js Charts</a>
+                                </li> -->
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <!--
+                        <li>
+                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                        </li>
+                        -->
+                        <li>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Branch Management<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="add_location.html">Add Branch</a>
+                                </li>
+                                <li>
+                                    <a href="edit_location.html">Update Branch</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Sogirl Management<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="add_merchant.html">Add Sogirl Information</a>
+                                </li>
+                                <li>
+                                    <a href="edit_merchant.html">Update Sogirl Information</a>
+                                </li>
+                                <li>
+                                    <a href="edit_merchant.html">Schedule Sogirls</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Sales Management<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <!--<li>
+                                    <a href="add_voucher.html">Add Voucher</a>
+                                </li>
+                                <li>
+                                    <a href="update_voucher.html">Update Voucher</a>
+                                </li>-->
+                                <li>
+                                    <a href="add_sales.html">Add Sales of the Day</a>
+                                </li>
+                                <li>
+                                    <a href="update_sales.html">Update Sales of the Day</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <!--
+                        <li>
+                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                        </li>
+                        -->
+                        <!--
+                        <li>
+                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="blank.html">Blank Page</a>
+                                </li>
+                                <li>
+                                    <a href="login.html">Login Page</a>
+                                </li>
+                            </ul>
+                            
+                        </li>
+                        -->
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Add Sales</h1>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <form role="form">
+                            <div class="form-group">
+                                <label>Store Branch</label>
+                                <input id="branch_name" class="form-control" disabled="true">
+                            </div>
+                            <div class="form-group">
+                                <label>Date</label>
+                                <br> 
+                                <input data-format="MM-dd-yyyy hh:mm:ss" class="form-control" type="text" id="sale_date" placeholder="Date"></p>
+                            </div>          
+                            <div class="form-group">
+                                <label>ZReport</label>
+                                <input type="number" id="zreport" class="form-control" placeholder="0">
+                            </div>
+                            <div class="form-group">
+                                <label>CiD</label>
+                                <input type="number" id="cid" class="form-control" placeholder="0"></input>
+                            </div>
+                            <div class="form-group">
+                                <label>CiS</label>
+                                <input type="number" id="cis" class="form-control" placeholder="0"></input>
+                            </div>
+                            <div class="form-group">
+                                <label>Top-up Float</label>
+                                <input type="number" id="top_up" class="form-control" placeholder="0"></input>
+                            </div>
+                            <div class="form-group">
+                                <label>Float</label>
+                                <input type="number" disabled="true" id="def_float" class="form-control" value="2000"></input>
+                            </div>
+                            <div class="form-group">
+                                <label>CiB</label>
+                                <input type="number" disabled="true" id="cib" class="form-control" placeholder="0"></input>
+                            </div>
+                            <div class="form-group">
+                                <input id="cib_temp" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Claims</label>
+                                <input type="number" id="claims" class="form-control" placeholder="0"></input>
+                            </div>
+                            <div class="form-group">
+                                <label>Gross</label>
+                                <input type="number" disabled="true" id="gross" class="form-control" placeholder="0"></input>
+                            </div>
+                            <div class="form-group">
+                                <input id="gross_temp" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Summary</label>
+                                <input type="text" disabled="true" id="summary" class="form-control"></input>
+                            </div>
+                            <div class="form-group">
+                                <label>Sales from Tubs</label>
+                                <input type="number" id="tubs_sales" class="form-control" placeholder="0"></input>
+                            </div>
+                            <!--<div class="form-group">
+                                <label>Feature</label>
+                                <select id="feature">
+                                <option value="true">True</option>
+                                <option value="false">False</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>End Date</label>
+                                <br>
+                                <input type="text" id="end_date" class="form-control" placeholder="  End Date"></p>
+                            </div>
+                            <div class="form-group">
+                                <label>Voucher Logo</label>
+                                <input id="voucher_logo" type="file">
+                            </div>
+                            <div class="form-group">
+                                <label>Total Voucher</label>
+                                <input type="number" id="total_voucher" class="form-control" placeholder="Total Voucher">
+                            </div>
+                            <div class="form-group">
+                                <label>Type</label>-->
+                                <!-- <input type="text" id="type" class="form-control" placeholder="Type">
+                                <select id="select_voucher_type" >
+                                    <option disabled>Choose Voucher Type</option>
+                                    <option value="eat">Eat</option>
+                                    <option value="play">Play</option>
+                                    <option value="shop">Shop</option>
+                                    <option value="others">Others</option>
+                                </select>
+                            </div>
+                            <br/>-->
+                            <!-- Modal -->
+                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h1 class="modal-title" id="myModalLabel">Sale of the day
+                                            <br/>
+                                            <small id="mod_sale_date"></small>
+                                        </h1>
+                                      </div>
+                                      <div class="modal-body">
+                                        <p id="mod_zreport"></p>
+                                        <br/>
+                                        <p id="mod_cid"></p>
+                                        <p id="mod_cis"></p>
+                                        <p id="mod_def_float"></p>
+                                        <br/>
+                                        <p id="mod_cib"></p>
+                                        <p id="mod_top_up"></p>
+                                        <p id="mod_claims"></p>
+                                        <br/>
+                                        <p id="mod_gross"></p>
+                                        <br/>
+                                        <p id="compare_gross_to_z"></p>
+                                        <h4 id="mod_summary"></h4>
+                                        <br/>
+                                        <p id="mod_tubs_sales"></p>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary" onClick="saveReport()">Save</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            <center>
+                                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" onClick="viewReport()">Submit</button>
+                                <button type="button" class="btn btn-default" onClick="resetFields()">Clear</button>
+                            </center>
+                        </form>
+                    </div>
+                    
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
+</body>
+
+<!-- Function for Add Voucher to Parse Database -->
+<script>
+    var saved_cookies = document.cookie;
+    var crumbs = saved_cookies.split("; ");
+    var branch_crumbs = crumbs[1].split("=");
+    var branch_id = branch_crumbs[1];
+
+    var branch_name = "";
+    var branch_query = new Parse.Query(Branches);
+    branch_query.equalTo("objectId", branch_id);
+    branch_query.first({
+        success: function(branch){
+            branch_name = branch.get("branch_name");
+            $("#branch_name").val(branch_name);
+        },
+        error: function(error) {
+            alert("Error: " + error.code + " " + error.message);
+        }
+    });
+
+    $(document).ready(function(){
+        $("input").keyup(function(){
+              var cid = +$("#top_up").val();
+              $("#def_float").val(2000-cid);
+       });
+    });
+
+    $(document).ready(function(){
+        $("input").keyup(function(){
+              var cid = +$("#cid").val();
+              var cis = +$("#cis").val();
+              var def_float = +$("#def_float").val();
+              $("#cib").val((cid+cis) - def_float);
+       });
+    });
+
+    $(document).ready(function(){
+        $("input").keyup(function(){
+              var cib = +$("#cib").val();
+              var claims = +$("#claims").val();
+              $("#gross").val(cib+claims);
+       });
+    });
+
+    $(document).ready(function(){
+        $("input").keyup(function(){
+              var gross = +$("#gross").val();
+              var zreport = +$("#zreport").val();
+              
+              var summary = "";
+              if (zreport == gross){
+                summary = "TALLY";
+              }else if (zreport < gross){
+                summary = "EXCESS"; 
+              }else if (zreport > gross){
+                summary = "SHORT";
+              }
+
+              $("#summary").val(summary);
+       });
+    });
+
+    function resetFields(){
+        $("#sale_date").val('');
+        $("#zreport").val('');
+        $("#cid").val('');
+        $("#cis").val('');
+        $("#cib").val('');
+        $("#top_up").val('');
+        $("#claims").val('');
+        $("#gross").val('');
+        $("#summary").val('');
+        $("#tubs_sales").val('');
+    }
+
+    function viewReport() {
+        debugger;
+        //var sale_date = $("#sale_date").datepicker('getDate');
+        var sale_date = "Date: " + $("#sale_date").val();
+        var zreport = "<big><b>ZReport:</b>  $" + $("#zreport").val() + "</big>";
+        var cid = "<big><b>CiD:</b>  $" + $("#cid").val() + "</big>";
+        var cis = "<big><b>CiS:</b>  $" + $("#cis").val() + "</big>";
+        var cib = "<big><b>CiB:</b>  $" + $("#cib").val() + "</big>";
+        var claims = "<big><b>Claims:</b>  $" + $("#claims").val() + "</big>";
+        var gross = "<big><b>Gross:</b>  $" + $("#gross").val() + "</big>";
+        var summary = $("#summary").val();
+        
+        var top_up = $("#top_up").val();
+        var def_float = $("#def_float").val();
+
+        var mod_top_up = "<big><b>Top-up Float:</b>  $" + $("#top_up").val() + "</big>";
+        var mod_def_float = "<big><b>Float:</b>  $" + $("#def_float").val() + "</big>";
+
+        var tub_sales = $("#tubs_sales").val();
+        if (tub_sales != ""){
+            tub_sales = "<big><b>Sales from Tubs:</b>  $" + $("#tubs_sales").val() + "</big>";
+        }else{
+            tubs_sales = "<big><b>Sales from Tubs:</b>  $0</big>";
+        }
+
+
+        var isIncomplete = false;
+        var error_msg = "";
+        if (sale_date == ""){
+            error_msg += "*Sale Date is empty!<br/>";
+            isIncomplete = true; 
+        }
+        
+        if (zreport == ""){
+            error_msg += "*ZReport is empty!<br/>";
+            isIncomplete = true;   
+        }
+
+        if (cid == ""){
+            error_msg += "*CiD is empty!<br/>";
+            isIncomplete = true;
+        }
+
+        if (cis == ""){
+            error_msg += "*CiS is empty!<br/>";
+            isIncomplete = true;
+        }
+
+        if (claims == ""){
+            error_msg += "*Claims is empty!<br/>";
+            isIncomplete = true;
+        }
+
+        if (isIncomplete == true){
+            alert(error_msg);
+        }else{
+
+            var comparison = "";
+            if (zreport == gross){
+                comparison = zreport + " == " + gross;
+            }else if (zreport < gross){
+                comparison = zreport + " < " + gross;
+            }else if (zreport > gross){
+                comparison = zreport + " > " + gross;
+            }
+
+            document.getElementById('mod_sale_date').innerHTML=sale_date;
+            document.getElementById('mod_zreport').innerHTML=zreport;
+            document.getElementById('mod_cid').innerHTML=cid;
+            document.getElementById('mod_cis').innerHTML=cis;
+            
+            if (top_up != ""){
+               document.getElementById('mod_top_up').innerHTML=mod_top_up;
+               document.getElementById('mod_def_float').innerHTML=mod_def_float;
+            }
+
+            document.getElementById('mod_cib').innerHTML=cib;
+            document.getElementById('mod_claims').innerHTML=claims;
+            document.getElementById('mod_gross').innerHTML=gross;
+            document.getElementById('compare_gross_to_z').innerHTML=comparison;
+            document.getElementById('mod_summary').innerHTML=summary;
+            document.getElementById('mod_tubs_sales').innerHTML=tub_sales;
+
+            //$('#myModal').modal('show');
+        }
+
+        
+                
+        /*voucher.save({
+            name: voucher_name,
+            desc: description,
+            photo: parseFile,
+            endDate: end_date,
+            startDate: start_date,
+            isFeature: boolVal,
+            totalVoucher: total_voucher,
+            type: type,
+            //voucherType: voucher_type,
+            //remainVoucher: remaining_voucher      
+        }, {
+            success: function(voucher) {
+                // The object was saved successfully.
+                setTimeout(function(){location.reload();},5000); 
+            },
+            error: function(voucher, error) {
+                // The save failed.
+                alert('Failed to save');
+                // error is a Parse.Error with an error code and message.
+            }
+        });
+        
+        voucher.set("merchant", merchant);
+        voucher.save();*/
+
+    }
+
+    function saveReport(){
+        debugger;
+        var sale_date_temp = $("#sale_date").val();
+        var sale_date = new Date(sale_date_temp);
+        var zreport = parseFloat($("#zreport").val());
+        var cid = parseFloat($("#cid").val());
+        var cis = parseFloat($("#cis").val());
+        var top_up = parseFloat($("#top_up").val());
+        var def_float = parseFloat($("#def_float").val());
+        var cib = parseFloat($("#cib").val());
+        var claims = parseFloat($("#claims").val());
+        var gross = parseFloat($("#gross").val());
+        var summary = $("#summary").val();
+        var tub_sales = parseFloat($("#tubs_sales").val());
+
+        branches.id = branch_id;
+
+        if (top_up == ""){
+            top_up = 0;
+        }
+
+        if (claims == ""){
+            claims = 0;
+        }
+
+        if (tub_sales == ""){
+            tub_sales = 0;
+        }
+
+        sales.set("branch", branches);
+        sales.set("date_of_sales", sale_date);
+        sales.set("zreport", zreport);
+        sales.set("cid", cid);
+        sales.set("cis", cis);
+        sales.set("top_up", top_up);
+        sales.set("def_float", def_float);
+        sales.set("cib", cib);
+        sales.set("claims", claims);
+        sales.set("gross", gross);
+        sales.set("sale_summary", summary);
+        sales.set("sales_from_tubs", tub_sales);
+
+        sales.save(null, {
+            success: function(sale_of_day){
+                $('#myModal').modal('hide');
+                resetFields();
+                alert("sale for date: " + sale_date + " for " + branch_name);
+            },
+            error: function(sale_of_day, error){
+                alert("saving failed!");
+            }
+        });
+    }
+</script>
+
+</html>
